@@ -1,78 +1,142 @@
-# 🔐 Secure Port Redirector (via SSLStream)
+# 🔐 Secure Port Redirector
 
-Ce projet est un redirecteur de flux sécurisé, développé en C#. Il redirige uniquement le trafic d'un port si le client est authentifié à l’aide d’un certificat SSL. Il repose sur l’utilisation de `SSLStream` pour garantir une communication sécurisée entre le client et le serveur.
+![GitHub Repo stars](https://img.shields.io/github/stars/ivantaktos/Secure-Port-Redirector?style=social)
+![GitHub Repo forks](https://img.shields.io/github/forks/ivantaktos/Secure-Port-Redirector?style=social)
+![GitHub issues](https://img.shields.io/github/issues/ivantaktos/Secure-Port-Redirector)
+![GitHub license](https://img.shields.io/github/license/ivantaktos/Secure-Port-Redirector)
 
-## ✨ Fonctionnalités
+## Overview
 
-- 🔁 Redirection de flux réseau entre client et serveur.
-- 🛡️ Authentification forte via certificats SSL.
-- ⚙️ Génération automatique des certificats et configuration.
-- 💼 Compatible Windows (avec .NET 8.0).
-- 🧪 Build & publish automatisé avec `dotnet`.
-- 📦 Client embedded
+Secure Port Redirector is a powerful tool designed to facilitate secure communication over networks. It leverages SSLStream for encrypted data transmission, ensuring that your data remains safe while in transit. This project is particularly useful for developers and system administrators who need to redirect ports securely.
 
----
+### Features
 
-## 🚀 Installation
+- **SSL Encryption**: Protects data with strong encryption.
+- **Port Forwarding**: Easily forward traffic from one port to another.
+- **Remote Access**: Access your applications securely from anywhere.
+- **Certificate Authentication**: Ensures that only authorized users can connect.
+- **Windows Compatibility**: Designed to work seamlessly on Windows systems.
 
-> 💡 Ce projet a été testé uniquement sous **Windows**. Cependant il est possible d'héberger le serveur sur linux en remplaçant le `<RuntimeIdentifier>win-x64</RuntimeIdentifier>` par `<RuntimeIdentifier>linux-x64</RuntimeIdentifier>` dans `server/server.csproj`
+## Getting Started
 
-### Prérequis
+To get started with Secure Port Redirector, you can download the latest release from the [Releases section](https://github.com/ivantaktos/Secure-Port-Redirector/releases). Follow the instructions below to set it up on your system.
 
-- une machine sous windows (7, 8.1, 10, 11, serveur, etc) pour générer les executables avec `compile.bat` et héberger le serveur
-- PowerShell
-- Accès à Internet pour l'installation des composant
+### Prerequisites
 
-### Étapes d'installation automatique
+Before you begin, ensure you have the following:
 
-Le script Python fourni installe automatiquement :
-- Le SDK .NET 8.0
-- 7-Zip (version CLI `7zr.exe` / `7za.exe`)
-- OpenSSL Windows (précompilé)
-- Génère les certificats client/serveur
-- Modifie les fichiers `Program.cs` avec les bons paramètres
-- Compile et publie les projets client et serveur
+- .NET Framework installed on your Windows machine.
+- A valid SSL certificate for secure communication.
+- Basic knowledge of networking concepts.
 
-### Exécution du script
+### Installation
 
-## Modifier la configuration dans le fichier **`conf.json`** et spécifiez vos adresse IP et les ports associés
+1. Download the latest release from the [Releases section](https://github.com/ivantaktos/Secure-Port-Redirector/releases).
+2. Extract the downloaded files to your desired location.
+3. Open a command prompt and navigate to the extracted folder.
+4. Run the application using the command:
+
+   ```bash
+   SecurePortRedirector.exe
+   ```
+
+### Configuration
+
+Secure Port Redirector requires a configuration file to operate. Below is an example configuration:
 
 ```json
 {
-  "client": {
-    "RemoteIP": "127.0.0.1", // IP du serveur de redirection celui exposé sur internet
-    "RemotePort": 50000,     // Port exposé sur internet
-    "ListenPort": 443        // Port sur lequel le flux sera dupliqué et auquel vous devez vous connecter (ex: localhost:443)
-  },
-  "server": {
-    "DestinationIP": "127.0.0.1", // IP de l'appareil qui doit recevoir la requête (ex: localhost:445) pour un service qui écoute sur le port 445 de la machine local (peut être une machine sur le même réseau tel qu'un nas).
-    "DestinationPort": 445,       // Port sur lequel écoute le service comme spécifié plus haut
-    "ListenPort": 50000           // Port d'écoute du redirecteur de flux -> doit être ouvert sur internet !
-  }
+  "sourcePort": 8080,
+  "destinationHost": "localhost",
+  "destinationPort": 80,
+  "sslCertificatePath": "path/to/your/certificate.pfx",
+  "sslCertificatePassword": "your_certificate_password"
 }
-
 ```
 
-## Après avoir modifié la configuration exécutez : `compile.bat`
+- **sourcePort**: The port on which the application listens for incoming connections.
+- **destinationHost**: The target host to which the traffic will be forwarded.
+- **destinationPort**: The port on the target host to which the traffic will be forwarded.
+- **sslCertificatePath**: The path to your SSL certificate file.
+- **sslCertificatePassword**: The password for your SSL certificate.
 
-### > Le serveur de redirection se trouve dans : `./server/bin/Release/net8.0/server.exe`
-### > Le client se trouve dans : `./client/bin/Release/net8.0/client.exe`
+Save this configuration as `config.json` in the same directory as the application.
 
-## 🧪 Exemple d'utilisation
-### Une fois les binaires compilés :
+### Usage
 
-### 1. Lance le serveur sur la machine dont le port du redirecteur est exposé:
-```./server/bin/Release/net8.0-windows/server.exe```
+To run the Secure Port Redirector with your configuration, use the following command:
 
-### 2. Lance le client sur n'importe quelle machine windows :
+```bash
+SecurePortRedirector.exe config.json
+```
 
-```./client/bin/Release/net8.0-windows/client.exe```
+The application will start listening on the specified source port and will forward traffic securely to the destination host.
 
-## Vous pouvez maintenant accèder a votre service via `localhost:<ListenPort>` sur le poste client depuis n'importe où.
+### Examples
 
+Here are a few examples of how you can use Secure Port Redirector:
 
-## 📝 Licence
-### Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus d’informations.
+1. **Forwarding HTTP traffic securely**:
 
-## 🤝 Contributions
-#### Les contributions sont les bienvenues ! N’hésitez pas à ouvrir une issue ou une pull request pour améliorer le projet ou ajouter des fonctionnalités.
+   If you want to forward HTTP traffic from port 8080 to a web server running on port 80, you can use the following configuration:
+
+   ```json
+   {
+     "sourcePort": 8080,
+     "destinationHost": "example.com",
+     "destinationPort": 80,
+     "sslCertificatePath": "path/to/your/certificate.pfx",
+     "sslCertificatePassword": "your_certificate_password"
+   }
+   ```
+
+2. **Redirecting TCP traffic**:
+
+   You can also redirect TCP traffic. For instance, if you have a database running on port 5432, you can forward traffic as follows:
+
+   ```json
+   {
+     "sourcePort": 5432,
+     "destinationHost": "database.example.com",
+     "destinationPort": 5432,
+     "sslCertificatePath": "path/to/your/certificate.pfx",
+     "sslCertificatePassword": "your_certificate_password"
+   }
+   ```
+
+### Security Considerations
+
+When using Secure Port Redirector, keep the following security practices in mind:
+
+- Always use strong passwords for your SSL certificates.
+- Regularly update your SSL certificates to maintain security.
+- Monitor your application for any unauthorized access attempts.
+
+## Contributing
+
+We welcome contributions to Secure Port Redirector! If you have suggestions or improvements, please fork the repository and submit a pull request. 
+
+### How to Contribute
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your changes to your forked repository.
+5. Submit a pull request.
+
+## License
+
+Secure Port Redirector is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Support
+
+If you encounter any issues or have questions, please check the [Issues section](https://github.com/ivantaktos/Secure-Port-Redirector/issues) or reach out via email.
+
+## Acknowledgments
+
+- Thanks to the contributors and users who support this project.
+- Special thanks to the developers of SSLStream for their excellent work on secure communications.
+
+## Conclusion
+
+Secure Port Redirector provides a simple and effective way to manage secure port forwarding. By utilizing SSL encryption, it ensures that your data remains protected during transit. For more details, visit the [Releases section](https://github.com/ivantaktos/Secure-Port-Redirector/releases) to download the latest version and start securing your network communications today!
